@@ -31,6 +31,7 @@ const extractBtn = document.getElementById("estrazione");
 extractBtn.addEventListener("click", function () {
     if (extractedNumbers.length >= 76) {
         alert("Tutti i numeri sono stati estratti!");
+        return;
     }
 
     let Num = Estract();
