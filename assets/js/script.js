@@ -1,5 +1,6 @@
 const Table = document.getElementById("mainTable");
 const arrayNumbers = [];
+const extractedNumbers = [];
 
 window.onload = () => {
     for (let i = 0; i < 76; i++) {
@@ -13,13 +14,24 @@ window.onload = () => {
 };
 
 const Estract = () => {
-    let NumEx = Math.floor(Math.random() * 77);
+    let NumEx;
+
+    do {
+        NumEx = Math.floor(Math.random() * 76) + 1;
+    } while (extractedNumbers.includes(NumEx));
+
+    extractedNumbers.push(NumEx);
     return NumEx;
 };
 
 const extractBtn = document.getElementById("estrazione");
 
 extractBtn.addEventListener("click", function () {
+    if (extractedNumbers.length >= 76) {
+        alert("Tutti i numeri sono stati estratti!");
+        return;
+    }
+
     let Num = Estract();
     //console.log(arrayNumbers);
     arrayNumbers.forEach((element) => {
