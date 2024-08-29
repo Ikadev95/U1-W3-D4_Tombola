@@ -19,6 +19,8 @@ const Estract = () => {
     do {
         NumEx = Math.floor(Math.random() * 76) + 1;
     } while (extractedNumbers.includes(NumEx));
+    //.includes verifica se un valore è presente o meno di un array o uns stringa ritornando un boolean
+    // finchè la condizione è vera continua a generare il numero quando diventa false esce dal loop
 
     extractedNumbers.push(NumEx);
     return NumEx;
@@ -29,7 +31,6 @@ const extractBtn = document.getElementById("estrazione");
 extractBtn.addEventListener("click", function () {
     if (extractedNumbers.length >= 76) {
         alert("Tutti i numeri sono stati estratti!");
-        return;
     }
 
     let Num = Estract();
